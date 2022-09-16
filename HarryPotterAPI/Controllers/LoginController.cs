@@ -19,6 +19,8 @@ namespace HarryPotterAPI.Controllers
         }
 
         [HttpPost]
+        [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(object), StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<Character>> Login([FromBody] Authenticate user)
         {
             var username = _configuration["UserAuthentication:login"];
