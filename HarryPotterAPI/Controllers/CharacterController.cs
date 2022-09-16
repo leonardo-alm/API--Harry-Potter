@@ -28,7 +28,6 @@ namespace HarryPotterAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        //[Authorize]
         [ProducesResponseType(typeof(Character), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Character>> Get([FromRoute]int id)
@@ -62,7 +61,7 @@ namespace HarryPotterAPI.Controllers
         }
 
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [ProducesResponseType(typeof(Character), StatusCodes.Status201Created)]
         public async Task<ActionResult<Character>> Post([FromBody] CharacterDto newCharacter)
         {        
@@ -72,7 +71,7 @@ namespace HarryPotterAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize]
+        [Authorize]
         [ProducesResponseType(typeof(Character), StatusCodes.Status204NoContent)]
         public async Task<ActionResult<Character>> Delete([FromRoute] int id)
         {
@@ -83,7 +82,7 @@ namespace HarryPotterAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        //[Authorize]
+        [Authorize]
         [ProducesResponseType(typeof(Character), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Character>> Put([FromRoute] int id, [FromBody] CharacterDto updatedCharacter)
@@ -95,7 +94,7 @@ namespace HarryPotterAPI.Controllers
         }
 
         [HttpPatch("{id}")]
-        //[Authorize]
+        [Authorize]
         [ProducesResponseType(typeof(Character), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Character>> Patch([FromRoute] int id, [FromBody] CharacterProfessionDto updatedCharacter)
